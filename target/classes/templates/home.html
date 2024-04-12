@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+  <script src="../assets/js/color-modes.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.111.3">
+  <title>Ground Control Home</title> <!-- Company name and page title -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="../assets/dist/css/index.css" rel="stylesheet">
+</head>
+
+<body>
+  <header data-bs-theme="dark">
+    <div class="collapse text-bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 offset-md-1 py-4">
+            <ul class="list-unstyled">
+              <li>
+                <form th:action="@{/logout}" method="post">
+                  <button type="submit" class="btn btn-secondary my-2" id="user_log">Sign Out</button> <!--sing out button hidden by the username-->
+                </form>
+              </li>
+              <li>
+                <span><button type="submit" class="btn btn-primary my-2" id="UserFlights" onclick="window.location = '/UserFlights'">My Flights</button></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>Ground Control</strong>
+        </a>
+        <a href="/Search" class="navbar-brand d-flex align-items-center">
+          <strong>Book a Flight</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span th:remove="tag" sec:authentication="name">thymeleaf</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light" th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>! <!-- say hello to the user -->
+          </h1>
+          <p class="lead text-body-secondary">Welcome to Ground Control! Here at Ground Control, we do our best to make
+            sure you get the best deal possible on all of you flying needs!</p>
+          <p>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+          <div class="col"> <!-- exmaple vacation location-->
+            <div class="card shadow-sm">
+              <img src="../static/assets/images/rio.jpg" th:src="@{/assets/images/rio.jpg}" alt="rio.jpg" class="card-img-top" width="100%"
+                height="225" role="img">
+              <div class="card-body">
+                <h5>Rio</h5>
+                <p class="card-text">Known as the Marvelous City, this glimmering Brazilian metropolis has certainly
+                  earned its title. Resting at the mouth of a bay harbor, the city is lined with white-sand beaches,
+                  lush rainforests and surrounded by staggered green mountains.
+                  From the shores of Copacabana, you'll admire the picture-perfect backdrop that has attracted Cariocas
+                  (native Brazilians born in Rio de Janeiro) and visitors alike for more than 500 years.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm"> <!-- exmaple vacation location-->
+              <img src="../static/assets/images/toronto.webp" th:src="@{/assets/images/toronto.webp}" alt="toronto.webp" class="card-img-top"
+                width="100%" height="225" role="img">
+              <div class="card-body">
+                <h5>Toronto</h5>
+                <p class="card-text">The city is also home to one of the tallest freestanding towers in the world, the
+                  CN Tower, and the world's largest underground shopping mall, PATH.
+                  But aside from visiting its biggest attractions, Toronto should be experienced like any other big
+                  city: sipping a cocktail in a corner restaurant, browsing multicultural shops on quirky neighborhood
+                  blocks and hopping on and off the subway for a night on the town.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm"> <!-- exmaple vacation location-->
+              <img src="../static/assets/images/matamanoa.jpg" th:src="@{/assets/images/matamanoa.jpg}" alt="matamanoa.jpg" class="card-img-top"
+                width="100%" height="225" role="img">
+              <div class="card-body">
+                <h5>Matamanoa</h5>
+                <p class="card-text">Matamanoa Island, an intimate and secluded Fijian Resort. We are set in the
+                  beautiful Mamanuca Islands of Fiji approximately 30 kilometres west of the Nadi International Airport.
+                  One Island – One Resort. With only 47 rooms, Matamanoa is for those who dream of peace and
+                  tranquility. Come ashore and experience a true gift of nature.
+                  Matamanoa is 4-star deluxe adults only resort, welcoming guests 16 years of age and older.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <footer class="text-body-secondary py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="mb-1">Kenneth Miller</p>
+      <p class="mb-1">IT-634 Distributed App Development</p>
+      <p class="mb-1">6/10/2023</p>
+    </div>
+  </footer>
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
